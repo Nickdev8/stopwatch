@@ -62,9 +62,11 @@ slider.oninput = function() {
 const text = document.getElementById('js--text');
 const img = document.getElementById('js--img');
 
-let gegevens = {
-    "text": "Dit is Furkan Ceylan",
-    "img": "img/1.webp",
-}
-text.innerText = gegevens.text;
-img.src = gegevens.img;
+let data = fetch('data.json')
+.then(response => response.json())
+.then(data => {
+    console.log(data);
+    gegevens = data;
+    text.innerText = gegevens.text;
+    img.src = gegevens.img;
+})
