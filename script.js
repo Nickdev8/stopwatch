@@ -45,3 +45,26 @@ function resetTimer() {
 startBtn.addEventListener('click', startTimer);
 stopBtn.addEventListener('click', stopTimer);
 resetBtn.addEventListener('click', resetTimer);
+
+
+const rangeValue = document.getElementById('js--rangeValue');
+const slider = document.getElementById('js--slider');
+//const body = document.getElementById('js--body'); deze werkt niet
+
+slider.value = 1;
+rangeValue.innerText = slider.value + "x";
+
+slider.oninput = function() {
+    rangeValue.innerText = this.value + "x";
+    rangeValue.style.fontSize = this.value + "rem";
+}
+
+const text = document.getElementById('js--text');
+const img = document.getElementById('js--img');
+
+let gegevens = {
+    "text": "Dit is Furkan Ceylan",
+    "img": "img/1.webp",
+}
+text.innerText = gegevens.text;
+img.src = gegevens.img;
